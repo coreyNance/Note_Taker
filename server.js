@@ -43,20 +43,8 @@ app.post('/api/notes', (req, res) => {
 
 app.delete("/api/notes/:id", (req, res) => {
 
-    let id = req.params.id.toString();
-    console.log(id);
 
-
-    for (let i = 0; i < notesData.length; i++) {
-        
-        if(notesData[i].id == id) {
-            console.log("match!");
-            res.send(notesData[i]);
-
-            notesData.splice(i,1);
-            break;
-        }
-    }
+    methods.data.deleteApi(req, res, notesData);
 
     methods.data.writeToDB(notesData);
     
