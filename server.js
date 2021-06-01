@@ -1,10 +1,8 @@
 const express = require('express');
 const app = express();
 const path = require("path"); // The path thats required for html routes. will go with html methods.
-const fs = require("fs");
-const { v4: uuidv4 } = require('uuid'); // code to create unique ID will go with api methods
 const methods = require('./routes/methods');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const notesData = require('./db/db.json');
 
 
@@ -17,8 +15,8 @@ app.use(express.json());
 
 // routes for html
 
-app.get('/notes', function(request, response) {
-    response.sendFile(path.join(__dirname, './public/notes.html'));
+app.get('/notes', function(req, res) {
+    res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
 
