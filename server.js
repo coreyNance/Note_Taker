@@ -28,22 +28,22 @@ app.get('/', (req, res) => {
 
 app.get('/api/notes', (req, res) => {
 
-   methods.data.getApi(req, res);
+   methods.getApi(req, res);
 })
 
 
 app.post('/api/notes', (req, res) => {
 
-    methods.data.postApi(req, res);
+    methods.postApi(req, res);
 
 })
 
 app.delete("/api/notes/:id", (req, res) => {
 
 
-    methods.data.deleteApi(req, res, notesData);
+    methods.deleteApi(req, res, notesData);
 
-    methods.data.writeToDB(notesData);
+    methods.writeToDB(notesData);
     
     })
 

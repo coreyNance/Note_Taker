@@ -80,4 +80,4 @@ methods.writeToDB = function(notes){
 
 
 
-module.exports.data = methods;
+module.exports = methods;
