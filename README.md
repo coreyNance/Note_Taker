@@ -53,7 +53,7 @@ Once pulled over from gitHub onto your local machine.
 - Once you navigate to the root folder, run npm init, then npm install.
 
 ## Screenshot/videolink
-[![Screenshot/videolink](assets/images/screenshot.png)](https://youtu.be/XtdmWqZINzY)
+[![Screenshot/videolink](assets\images\screenshot.png)](https://youtu.be/XtdmWqZINzY)
 <br>  
 
 ## Repository
