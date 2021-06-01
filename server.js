@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const path = require("path"); // The path thats required for html routes. will go with html methods.
+const path = require("path"); 
 const methods = require('./routes/methods');
 const PORT = process.env.PORT || 3000;
 const notesData = require('./db/db.json');
@@ -13,7 +13,6 @@ app.use(express.json());
 
 
 
-// routes for html
 
 app.get('/notes', function(req, res) {
     res.sendFile(path.join(__dirname, './public/notes.html'));
@@ -58,6 +57,10 @@ app.delete("/api/notes/:id", (req, res) => {
 app.listen(PORT,()=> {
     console.log(`App listening on PORT: ${PORT}`)
 })
+
+
+
+
 
 
 
