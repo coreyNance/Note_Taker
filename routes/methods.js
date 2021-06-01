@@ -34,8 +34,9 @@ methods.postApi = function(req, res) {
 }
 
 
-methods.deleteApi = function(req, res, notesData) {
+methods.deleteApi = function(req, res) {
 
+    let notesData = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 
     // let id = req.params.id.toString();
     // console.log(id);
@@ -52,11 +53,11 @@ methods.deleteApi = function(req, res, notesData) {
     //     }
     // }
 
-    let deletedNote
     let id = req.params.id.toString();
     let noteIndex = notesData.findIndex((note) => note.id === id)
     if (noteIndex >= 0) {
         notesData.splice(noteIndex,1);
+        fs.writeFileSync('./db/db.json', JSON.stringify(notesData));
         res.sendStatus(200);
         // res.status(200).send();
     } else {
@@ -64,23 +65,6 @@ methods.deleteApi = function(req, res, notesData) {
         res.sendStatus(404);
     }
     
-
-
 }
-
-
-methods.writeToDB = function(notes){
-    
-    notes = JSON.stringify(notes);
-    console.log (notes);
-    
-    fs.writeFileSync("./db/db.json", notes, function(err){
-        if (err) {
-            return console.log(err);
-        }
-    });
-}
-
-
 
 module.exports = methods;

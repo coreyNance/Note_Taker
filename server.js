@@ -3,7 +3,6 @@ const app = express();
 const path = require("path"); 
 const methods = require('./routes/methods');
 const PORT = process.env.PORT || 3000;
-const notesData = require('./db/db.json');
 
 
 app.use(express.static("public"));
@@ -39,13 +38,8 @@ app.post('/api/notes', (req, res) => {
 })
 
 app.delete("/api/notes/:id", (req, res) => {
-
-
-    methods.deleteApi(req, res, notesData);
-
-    methods.writeToDB(notesData);
-    
-    })
+    methods.deleteApi(req, res);
+})
 
 
 
