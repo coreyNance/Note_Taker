@@ -57,10 +57,11 @@ methods.deleteApi = function(req, res, notesData) {
     let noteIndex = notesData.findIndex((note) => note.id === id)
     if (noteIndex >= 0) {
         notesData.splice(noteIndex,1);
-        deletedNote = notesData;
-        res.status(200).send(deletedNote);
+        res.sendStatus(200);
+        // res.status(200).send();
     } else {
-        res.status(404).send()
+        // res.status(404).send()
+        res.sendStatus(404);
     }
     
 
