@@ -37,30 +37,30 @@ methods.postApi = function(req, res) {
 methods.deleteApi = function(req, res, notesData) {
 
 
-    // let id = req.params.id.toString();
-    // console.log(id);
-
-
-    // for (let i = 0; i < notesData.length; i++) {
-        
-    //     if(notesData[i].id == id) {
-    //         console.log("match!");
-    //         res.send(notesData[i]);
-
-    //         notesData.splice(i,1);
-    //         break;
-    //     }
-    // }
-
-    let deletedNote
     let id = req.params.id.toString();
-    let noteIndex = notesData.findIndex((note) => note.id === id)
-    if (noteIndex >= 0) {
-        notesData.splice(noteIndex,1);
-        res.status(200).send()
-    } else {
-        res.status(404).send()
+    console.log(id);
+
+
+    for (let i = 0; i < notesData.length; i++) {
+        
+        if(notesData[i].id == id) {
+            console.log("match!");
+            res.send(notesData[i]);
+
+            notesData.splice(i,1);
+            break;
+        }
     }
+
+//     let deletedNote
+//     let id = req.params.id.toString();
+//     let noteIndex = notesData.findIndex((note) => note.id === id)
+//     if (noteIndex >= 0) {
+//         notesData.splice(noteIndex,1);
+//         res.status(200).send()
+//     } else {
+//         res.status(404).send()
+//     }
 
 
 }
